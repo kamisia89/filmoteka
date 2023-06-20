@@ -11,8 +11,8 @@ class Movies:
 
     def __str__(self):
         return (
-            f" Tytuł: {self.name}\n rok prod.: {self.year}\n gatunek: {self._type}\n "
-            f" liczba odtworzeń: {self.num_plays}"
+            f" Tytuł: {self.name}\n Rok produkcji: {self.year}\n Gatunek: {self._type}\n "
+            f" Liczba odtworzeń: {self.num_plays}"
         )
 
     def __repr__(self) -> str:
@@ -30,81 +30,50 @@ class Series(Movies):
 
     def __str__(self):
         return (
-            f" Tytuł: {self.name}\n rok prod.: {self.year}\n gatunek: {self._type}\n  "
-            f"ilość odcinków: {self.episodes}\n ilość sezonów:{self.seasons}\n ilość odtworzeń: {self.num_plays}"
+            f" Tytuł: {self.name}\n Rok produkcji: {self.year}\n Gatunek: {self._type}\n  "
+            f"Ilość odcinków: {self.episodes}\n Ilość sezonów:{self.seasons}\n Liczba odtworzeń: {self.num_plays}"
         )
 
 
 _list = []
-pulp_fiction = Movies("Pulp fiction", 1994, "crime", 0)
-killing_zoe = Movies("Killing Zoe", 1994, "crime", 0)
-amelie = Movies("Amelie", 2001, "romantic-comedy", 0)
-trainspotting = Movies("Trainspotting", 1995, "drama", 0)
-Pi = Movies("Pi", 1996, "drama", 0)
-delicatessen = Movies("Delicatessen", 1992, "comedy/thriller", 0)
-breaking_bad = Series(3, 45, "breaking bad", 2012, "crime", 0)
-queens_gambit = Series(1, 7, "Queen's gambit", 2020, "moral/comedy", 0)
-mr_bean = Series(1, 110, "Mr Bean", 1994, "comedy", 0)
-_list.append(pulp_fiction)
-_list.append(killing_zoe)
-_list.append(amelie)
-_list.append(trainspotting)
-_list.append(Pi)
-_list.append(delicatessen)
+zielona_mila = Movies("Zielona Mila", 1999, "dramat", 0)
+skazani_na_Shawshank = Movies("Skazani na Shawshank", 1994, "dramat", 0)
+forest_gump = Movies("Forest Gump", 1994, "dramat", 0)
+leon_zawodowiec = Movies("Leon zawodowiec", 1994, "kryminał", 0)
+requiem_dla_snu = Movies("Requiem dla snu", 200, "dramat", 0)
+matrix = Movies("Matrix", 1999, "sci-fi", 0)
+milczenie_owiec = Movies("Milczenie owiec", 1991, "thriller", 0)
+gladiator = Movies("Gladiator", 2000, "dramat historyczny", 0)
+avatar = Movies("Avatar", 2009, "sci-fi", 0)
+shrek = Movies("Shrek", 2001, "familijny", 0)
+gra_o_tron = Series("Gra o tron", 2011 - 2019, "przygodowy", 0)
+dr_house = Series("Dr House", 2004 - 2012, "komedia", 0)
+breaking_bad = Series("Breaking Bad", 2008 - 2013, "kryminał", 0)
+stranger_things = Series("Stranger Things", 2016, "sci-fi", 0)
+przyjaciele = Series("Przyjaciele", 1994 - 2004, "komedia", 0)
+sherlock = Series("Sherlock", 2010 - 2017, "kryminał", 0)
+house_of_cards = Series("House of Cards", 2013 - 2018, "Dramat", 0)
+dexter = Series("Dexter", 2006 - 2013, "kryminał", 0)
+detektyw = Series("Detektyw", 2014, "kryminał", 0)
+the_walking_dead = Series("The Walking Dead", 2010 - 2022, "horror", 0)
+_list.append(zielona_mila)
+_list.append(skazani_na_Shawshank)
+_list.append(forest_gump)
+_list.append(leon_zawodowiec)
+_list.append(requiem_dla_snu)
+_list.append(matrix)
+_list.append(milczenie_owiec)
+_list.append(gladiator)
+_list.append(avatar)
+_list.append(shrek)
+_list.append(gra_o_tron)
+_list.append(gra_o_tron)
+_list.append(dr_house)
 _list.append(breaking_bad)
-_list.append(queens_gambit)
-_list.append(mr_bean)
-
-movies_list = []
-series_list = []
-top_list = []
-
-
-def get_movies():
-    for movie in _list:
-        if isinstance(movie, Movies) == True:
-            movies_list.append(movie)
-
-
-def get_series():
-    for serie in _list:
-        if isinstance(movie, Series) == True:
-            series_list.append(serie)
-
-
-def search(name_movie):
-    for movie in _list:
-        if movie.name == name_movie:
-            return movie
-    for serie in series_list:
-        if serie.name == name_movie:
-            return serie
-    info = "Nie posiadamy takiego filmu w zasobach"
-    return info
-
-
-def generate_views(plays):
-    for x in range(plays):
-        movie_random = choice(_list)
-        movie_random.num_plays = randint(0, 100)
-
-
-def top_titles():
-    top_titles_list = []
-    top_movies = sorted(_list, key=lambda movie: movie.num_plays, reverse=True)
-    for movie in top_movies:
-        title = movie.name
-        top_titles_list.append(title)
-    return top_titles_list
-
-
-generate_views(10)
-# print(_list)
-
-today = date.today()
-today_date = today.strftime("%d.%m.%Y")
-name_movie = input("Podaj film który Ciebie interesuje: ")
-print(search(name_movie))
-result = top_titles()
-top3 = result[0:3]
-print(f"Dzisiaj: {today_date} najpopularniejsze 3 filmy to: {top3}")
+_list.append(stranger_things)
+_list.append(przyjaciele)
+_list.append(sherlock)
+_list.append(house_of_cards)
+_list.append(dexter)
+_list.append(detektyw)
+_list.append(the_walking_dead)
